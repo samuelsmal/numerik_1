@@ -20,7 +20,7 @@ function [n, m] = f_1_ops_counter(coeffs, x)
 		% Naive
 		% Each term a_n * x^n requires n multiplications.
 		% A polynomial of degree 0 requires 0 operations.
-		for i = 2:length(coeffs)
+		for i = 1:length(coeffs)
 			if coeffs(i) ~= 0
 				m = m + i;
 			end
