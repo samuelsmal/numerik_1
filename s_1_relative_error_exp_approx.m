@@ -19,6 +19,7 @@ end
 % I tried something different then the usual multiplot way, which is below,
 % but I ran into some problems.
 figure;
+clf;
 s(1) = subplot(4,1,1);
 semilogy(n, y(1,:))
 title('e^{-10}')
@@ -37,8 +38,11 @@ title('e^{10}')
 
 xlabel('Degree of the power series')
 
+print('../plots/ex1/rel_error_exp_1.png', '-dpng');
+
 % Seems not to plot right on matlab. Octave works fine.
 fig2 = figure;
+clf;
 
 hold on;
 colours = linspace(0.2, 0.8, length(x_0));
@@ -52,3 +56,5 @@ xlabel('Degree of the polynomial');
 legend('x_0 = -10', 'x_0 = -5', 'x_0 = 5', 'x_0 = 10', 'Location', 'SouthWest');
 
 hold off;
+
+print('../plots/ex1/rel_error_exp_2.png', '-dpng')
