@@ -1,7 +1,7 @@
-function [n, m] = ops_counter(coeffs, x)
-% OPS_COUNTER counts the required operations used to evaluate a polynomial.
+function [n, m] = f_1_ops_counter(coeffs, x)
+% F_1_OPS_COUNTER counts the required operations used to evaluate a polynomial.
 %
-% ops_counter(coeffs, x) returns first the number using the horner method
+% f_1_ops_counter(coeffs, x) returns first the number using the horner method
 % and second the number using the naive (extra naive, powers are calculated
 % by repeated multiplication) way.
 	n = 0;

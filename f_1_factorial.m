@@ -1,6 +1,6 @@
-function y = myfactorial(x)
-% MYFACTORIAL Factorial computation
-% f = MYFACTORIAL(x) computes the factorial of the given integer.
+function y = f_1_factorial(x)
+% F_1_FACTORIAL Factorial computation
+% f = f_1_factorial(x) computes the factorial of the given integer.
 	% works only for one number and is a quite dumb way...
 	%if x < 0
 	%	error('The factorial is only defined for positive numbers!')
