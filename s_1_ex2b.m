@@ -7,7 +7,7 @@
 degrees = [0:1:100];
 
 horner = @(n) 2 .* n;
-naive = @(n) n .* (n-1) ./ 2;
+naive = @(n) n + n .* (n-1) ./ 2;
 
 figure;
 clf;

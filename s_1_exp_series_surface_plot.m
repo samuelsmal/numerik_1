@@ -1,6 +1,6 @@
 % Plots a 3d surface to visualize the error.
 
-n = [0:5:100];
+n = [0:5:300];
 x_0 = [0:-5:-100];
 
 fun_handle = @(x, n) abs(f_1_exp_series(x, n) - exp(x)) / exp(x);

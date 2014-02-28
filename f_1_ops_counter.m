@@ -9,8 +9,7 @@ function [n, m] = f_1_ops_counter(coeffs, x)
 
 	if x ~= 0
 		% Horner
-		% As if thinking about it 
-		% and resulting in 2n operations would have been that hard...
+		% Each term requires one addition and one multiplication.
 		for i = 2:length(coeffs)
 			if coeffs(i) ~= 0
 				n = n + 2;
@@ -18,11 +17,12 @@ function [n, m] = f_1_ops_counter(coeffs, x)
 		end
 
 		% Naive
-		% Each term a_n * x^n requires n multiplications.
+		% Each term a_n * x^n requires n multiplications plus one addition.
+		% If the powers are calculated by repeated multiplication.
 		% A polynomial of degree 0 requires 0 operations.
-		for i = 1:length(coeffs)
+		for i = 2:length(coeffs)
 			if coeffs(i) ~= 0
-				m = m + i;
+				m = m + i + 1;
 			end
 		end
 	end
