@@ -45,10 +45,10 @@ end
 
 
 function [support] = eval_support(data_x, x_0, vector_length)
-	support = ones(1, vector_length);
+	support = ones(vector_length, length(x_0));
 
-	for i = 2:length(vector_length)
-		support(i) = support(i - 1) * (x_0 - data_x(i));
+	for i = 2:vector_length
+		support(i,:) = support(i - 1,:) .* (x_0 - data_x(i - 1));
 	end
 end
 
@@ -61,7 +61,7 @@ function [p, coeffs] = interpol_newton(data_x, data_y, x_0)
 	support = eval_support(data_x, x_0, n);
 
 	for i = 1:n
-		p = p + coeffs(i) * support(i);
+		p = p + coeffs(i) .* support(i,:);
 	end
 end
 

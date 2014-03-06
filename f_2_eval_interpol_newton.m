@@ -1,5 +1,5 @@
-function [y] = f_2_interpol_newton(coeffs, support_points, x_0)
-% F_2_INTERPOL_NEWTON Evaluates the interpolation polynomial 
+function [y] = f_2_eval_interpol_newton(coeffs, support_points, x_0)
+% F_2_EVAL_INTERPOL_NEWTON Evaluates the interpolation polynomial 
 % in Newton's form using an Horner's type algorithm.	
 % coeffs:         The coefficients of the generated polynomial.
 % support_points: The original support points.
