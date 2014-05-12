@@ -18,21 +18,21 @@ function [lower_diag, upper_diag, num_ops] = lu_band_matrix_decomp(A)
     lower_diag = eye(size_a);
     ops = 0;
     
-    for k = 1 : n - 1
+    for k = 1 : size_a - 1
         if abs(temp_a(k, k)) <= eps
             error(['*** The LU decomposition is aborted.',10, ...
                    '*** Because the matrix doesn''t permit it.']);
         end
 
         % There are only zero's below i+q in each column.
-        for i = (k + 1) : min(n, k + q) 
+        for i = (k + 1) : min(size_a, k + left_bandwidth) 
             multiplier = temp_a(i, k) / temp_a(k, k);
-            L(i, k) = multiplier;
+            lower_diag(i, k) = multiplier;
 
             temp_a(i, k) = 0;
 
             ops = ops + 1;
-            for j = (k + 1) : min(n, k + p)
+            for j = (k + 1) : min(size_a, k + right_bandwidth)
                 temp_a(i, j) = temp_a(i, j) - multiplier * temp_a(k, j);
                 ops = ops + 2;
             end

@@ -15,9 +15,9 @@ function [lower_triangle, upper_triangle, solution] = lu_factorization(A, b)
 	temp_a = A;
     temp_b = b;
 
-    solution = zeros(n,1);
+    solution = zeros(size_a,1);
 
-    lower_triangle = eye(n);
+    lower_triangle = eye(size_a);
 
     for k = 1 : size_a - 1
         % If the entry is smaller than the machine precision
@@ -42,17 +42,16 @@ function [lower_triangle, upper_triangle, solution] = lu_factorization(A, b)
 
     upper_triangle = temp_a;
     
-    % Backpropagation
-    solution(size_a) = temp_b(size_a) / U(size_a, size_a);
+    %Backpropagation
+    solution(size_a) = temp_b(size_a) / upper_triangle(size_a, size_a);
 
     for k = (size_a - 1) : (-1) : 1
-        x(k) = temp_b(k);
+        solution(k) = temp_b(k);
 
         for j = (k + 1) : size_a
-            x(k) = x(k) - x(j) * upper_triangle(k, j);
+            solution(k) = solution(k) - solution(j) * upper_triangle(k, j);
         end
 
-        x(k) = x(k) / upper_triangle(k, k);
+        solution(k) = solution(k) / upper_triangle(k, k);
     end
-
 end
