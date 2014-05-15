@@ -1,4 +1,4 @@
-%% f_4_numerical_integration: Integrates the function
+%% F_4_NUMERICAL_INTEGRATION: Integrates the function
 % a begin of interval
 % b end of interval
 % fn function handle
